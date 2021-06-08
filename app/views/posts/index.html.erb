@@ -1,0 +1,17 @@
+<%# HARD CODED PATH %>
+
+<% @posts.each do |post| %>
+  <div><%= link_to post.title, "/posts/#{post.id}" %></div>
+<% end %> 
+
+<%# ROUTE HELPER %>
+
+<% @posts.each do |post| %>
+  <div><%= link_to post.title, post_path(post.id) %></div>
+<% end %> 
+
+<%# FINAL REFACTOR %>
+
+<% @posts.each do |post| %>
+  <div><%= link_to post.title, post_path(post) %></div>
+<% end %> 
