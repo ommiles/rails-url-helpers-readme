@@ -1,16 +1,19 @@
 <%# HARD CODED PATH %>
+<% @posts.each do |post| %>
+  <div><a href='<%= "/posts/#{post.id}" %>'><%= post.title %></a></div>
+<% end %> 
 
 <% @posts.each do |post| %>
   <div><%= link_to post.title, "/posts/#{post.id}" %></div>
 <% end %> 
 
 <%# ROUTE HELPER %>
-
 <% @posts.each do |post| %>
   <div><%= link_to post.title, post_path(post.id) %></div>
 <% end %> 
 
 <%# FINAL REFACTOR %>
+<%# link_to method to automatically create an HTML a tag %>
 
 <% @posts.each do |post| %>
   <div><%= link_to post.title, post_path(post) %></div>
